@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = sliderCard.querySelector('.service-slider__next');
     let current   = 0;
     let timer     = null;
-    const DELAY   = 4500;
+    const DELAY   = 1500;
 
     function goTo(idx) {
       slides[current].classList.remove('active');
