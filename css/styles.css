@@ -193,6 +193,20 @@ button {
   border-color: #1da851;
 }
 
+/* Dos botones WA lado a lado (sección Contacto) */
+.contact-channel__wa-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.contact-channel__wa-btns .btn {
+  flex: 1;
+  min-width: 110px;
+  justify-content: center;
+}
+
 .btn--lg {
   padding: 14px 32px;
   font-size: 1rem;
@@ -576,6 +590,118 @@ button {
 .service-card--exclusive {
   border-top-color: var(--red);
 }
+
+/* ---------- Service card slider (card rotatoria) ---------- */
+.service-card--slider {
+  display: flex;
+  flex-direction: column;
+  border-top-color: var(--red);
+}
+
+/* Badge "5 servicios" en la esquina */
+.service-card__slider-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(226,0,26,0.08);
+  color: var(--red);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+  pointer-events: none;
+}
+
+/* Contenedor que superpone todos los slides */
+.service-card__slider-inner {
+  display: grid;
+  flex: 1;
+}
+
+.service-card__slide {
+  grid-column: 1;
+  grid-row: 1;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card__slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Barra de navegación del slider */
+.service-card__slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 14px;
+  margin-top: 12px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.service-slider__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--gray-400, #aaa);
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  transition: color var(--transition), background var(--transition);
+  /* Área táctil generosa */
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.service-slider__btn:hover,
+.service-slider__btn:focus-visible {
+  color: var(--red);
+  background: rgba(226,0,26,0.08);
+  outline: none;
+}
+
+.service-slider__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.service-slider__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50px;
+  border: none;
+  background: var(--gray-200, #ddd);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  /* Área táctil mínima en mobile */
+  position: relative;
+}
+
+.service-slider__dot::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+
+.service-slider__dot.active {
+  background: var(--red);
+  width: 22px;
+}
+
+/* ---------- Fin service card slider ---------- */
 
 .service-card__exclusive-badge {
   position: absolute;
@@ -1122,23 +1248,37 @@ button {
 /* --------------------------------------------------------------------------
    11. WhatsApp Float
    -------------------------------------------------------------------------- */
-.whatsapp-float {
+
+/* Wrapper posicionado fijo */
+.whatsapp-float__wrap {
   position: fixed;
   bottom: 28px;
   right: 28px;
   z-index: 999;
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Botón principal */
+.whatsapp-float {
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 58px;
   height: 58px;
+  min-width: 58px; /* evita que se achique en flex */
   background: #25D366;
   color: var(--white);
   font-size: 1.7rem;
   border-radius: 50%;
   box-shadow: 0 4px 20px rgba(37,211,102,0.45);
   transition: all var(--transition);
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .whatsapp-float:hover {
@@ -1147,6 +1287,12 @@ button {
   box-shadow: 0 6px 28px rgba(37,211,102,0.55);
 }
 
+/* Icono X cuando el menú está abierto */
+.whatsapp-float__wrap.open .whatsapp-float {
+  background: #1da851;
+}
+
+/* Tooltip */
 .whatsapp-float__tooltip {
   position: absolute;
   right: 68px;
@@ -1166,6 +1312,11 @@ button {
 .whatsapp-float:hover .whatsapp-float__tooltip {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Ocultar tooltip cuando el menú está abierto */
+.whatsapp-float__wrap.open .whatsapp-float__tooltip {
+  display: none;
 }
 
 .whatsapp-float__tooltip::after {
@@ -1188,9 +1339,95 @@ button {
   animation: waPulse 2.5s ease-out infinite;
 }
 
+.whatsapp-float__wrap.open .whatsapp-float::after {
+  animation: none;
+}
+
 @keyframes waPulse {
   0%   { transform: scale(0.8); opacity: 1; }
   100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Menú selector de sucursal */
+.whatsapp-float__menu {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 36px rgba(0,0,0,0.18);
+  padding: 14px;
+  min-width: 250px;
+  opacity: 0;
+  transform: translateY(12px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  transform-origin: bottom right;
+}
+
+.whatsapp-float__wrap.open .whatsapp-float__menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.whatsapp-float__menu-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 4px 10px;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 8px;
+}
+
+/* Opciones de sucursal — tamaño táctil generoso */
+.whatsapp-float__option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--gray-800);
+  transition: background var(--transition);
+  min-height: 56px;
+}
+
+.whatsapp-float__option:hover,
+.whatsapp-float__option:focus-visible {
+  background: rgba(37,211,102,0.1);
+  outline: none;
+}
+
+.whatsapp-float__option + .whatsapp-float__option {
+  margin-top: 4px;
+}
+
+.whatsapp-float__option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: #25D366;
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.whatsapp-float__option strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-900, #111);
+  line-height: 1.2;
+}
+
+.whatsapp-float__option small {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--gray-500);
+  margin-top: 2px;
 }
 
 
@@ -1346,12 +1583,20 @@ button {
   }
 
   /* WhatsApp float */
-  .whatsapp-float {
+  .whatsapp-float__wrap {
     bottom: 20px;
     right: 20px;
+  }
+
+  .whatsapp-float {
     width: 52px;
     height: 52px;
+    min-width: 52px;
     font-size: 1.5rem;
+  }
+
+  .whatsapp-float__menu {
+    min-width: 230px;
   }
 }
 

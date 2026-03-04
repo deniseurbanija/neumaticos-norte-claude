@@ -151,6 +151,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // -----------------------------------------------------------------------
+  // 7. Service card slider — rotación automática entre 5 servicios
+  // -----------------------------------------------------------------------
+  const sliderCard   = document.getElementById('serviceSliderCard');
+  const sliderInner  = document.getElementById('serviceSliderInner');
+  const sliderDots   = document.getElementById('serviceSliderDots');
+
+  if (sliderCard && sliderInner) {
+    const slides  = sliderInner.querySelectorAll('.service-card__slide');
+    const dots    = sliderDots  ? sliderDots.querySelectorAll('.service-slider__dot') : [];
+    const prevBtn = sliderCard.querySelector('.service-slider__prev');
+    const nextBtn = sliderCard.querySelector('.service-slider__next');
+    let current   = 0;
+    let timer     = null;
+    const DELAY   = 4500;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function startAuto() { timer = setInterval(() => goTo(current + 1), DELAY); }
+    function stopAuto()  { clearInterval(timer); }
+    function resetAuto() { stopAuto(); startAuto(); }
+
+    startAuto();
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.idx, 10)); resetAuto(); });
+    });
+
+    // Pausar en hover / focus para que el usuario pueda leer
+    sliderCard.addEventListener('mouseenter', stopAuto);
+    sliderCard.addEventListener('mouseleave', startAuto);
+    sliderCard.addEventListener('focusin',    stopAuto);
+    sliderCard.addEventListener('focusout',   startAuto);
+  }
+
+
+  // -----------------------------------------------------------------------
+  // 8. WhatsApp float — toggle menú de sucursales
+  // -----------------------------------------------------------------------
+  const waToggle = document.getElementById('waToggle');
+  const waFloat  = document.getElementById('waFloat');
+  const waMenu   = document.getElementById('waMenu');
+  const waIcon   = document.getElementById('waIcon');
+
+  if (waToggle && waFloat) {
+    waToggle.addEventListener('click', () => {
+      const isOpen = waFloat.classList.toggle('open');
+      waToggle.setAttribute('aria-expanded', isOpen.toString());
+      waMenu.setAttribute('aria-hidden', (!isOpen).toString());
+      // Cambiar ícono: WA ↔ X
+      waIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-brands fa-whatsapp';
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', e => {
+      if (!waFloat.contains(e.target)) {
+        waFloat.classList.remove('open');
+        waToggle.setAttribute('aria-expanded', 'false');
+        waMenu.setAttribute('aria-hidden', 'true');
+        waIcon.className = 'fa-brands fa-whatsapp';
+      }
+    });
+
+    // Cerrar al elegir una sucursal (cierra el menú antes de abrir WA)
+    waMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        waFloat.classList.remove('open');
+        waToggle.setAttribute('aria-expanded', 'false');
+        waMenu.setAttribute('aria-hidden', 'true');
+        waIcon.className = 'fa-brands fa-whatsapp';
+      });
+    });
+  }
+
+
   function showFormSuccess() {
     if (!formSuccess) return;
     formSuccess.style.display = 'flex';

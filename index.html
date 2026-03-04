@@ -10,7 +10,7 @@
   <meta property="og:description" content="Especialistas en neumáticos. Distribuidor oficial Bridgestone para Misiones y Chaco. Calidad, seguridad y confianza.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <link rel="icon" type="image/png" href="public/favicon.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,7 +143,7 @@
         <div class="about__visual" data-aos="fade-left" data-aos-delay="100">
           <div class="about__image-wrap">
             <img
-              src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=700&q=80"
+              src="https://images.unsplash.com/photo-1760836395760-552678e43a9b?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Taller Neumáticos Norte"
               loading="lazy"
               class="about__img"
@@ -197,15 +197,78 @@
           </div>
         </div>
 
-        <div class="service-card" data-aos="fade-up" data-aos-delay="120">
-          <div class="service-card__icon">
-            <i class="fa-solid fa-circle-dot"></i>
+        <!-- Slider: 5 servicios rotativos -->
+        <div class="service-card service-card--slider" data-aos="fade-up" data-aos-delay="120" id="serviceSliderCard">
+          <div class="service-card__slider-badge">+5 servicios</div>
+          <div class="service-card__slider-inner" id="serviceSliderInner">
+
+            <div class="service-card__slide active">
+              <div class="service-card__icon"><i class="fa-solid fa-circle-dot"></i></div>
+              <h3 class="service-card__title">Parche</h3>
+              <p class="service-card__desc">Reparación de neumáticos con parche vulcanizado para una solución duradera y segura.</p>
+              <div class="service-card__branches">
+                <span class="branch-tag branch-tag--posadas">Posadas</span>
+                <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+              </div>
+            </div>
+
+            <div class="service-card__slide">
+              <div class="service-card__icon"><i class="fa-solid fa-gears"></i></div>
+              <h3 class="service-card__title">Reparación de llantas</h3>
+              <p class="service-card__desc">Reparación y restauración de llantas dañadas para recuperar tu rueda con garantía de calidad.</p>
+              <div class="service-card__branches">
+                <span class="branch-tag branch-tag--posadas">Posadas</span>
+                <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+              </div>
+            </div>
+
+            <div class="service-card__slide">
+              <div class="service-card__icon"><i class="fa-solid fa-steering-wheel"></i></div>
+              <h3 class="service-card__title">Tren delantero</h3>
+              <p class="service-card__desc">Diagnóstico y reparación del tren delantero para una conducción segura y sin vibraciones.</p>
+              <div class="service-card__branches">
+                <span class="branch-tag branch-tag--posadas">Posadas</span>
+                <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+              </div>
+            </div>
+
+            <div class="service-card__slide">
+              <div class="service-card__icon"><i class="fa-solid fa-arrows-up-down"></i></div>
+              <h3 class="service-card__title">Amortiguador</h3>
+              <p class="service-card__desc">Revisión y reemplazo de amortiguadores para mejorar el control, seguridad y confort en ruta.</p>
+              <div class="service-card__branches">
+                <span class="branch-tag branch-tag--posadas">Posadas</span>
+                <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+              </div>
+            </div>
+
+            <div class="service-card__slide">
+              <div class="service-card__icon"><i class="fa-solid fa-circle-stop"></i></div>
+              <h3 class="service-card__title">Freno</h3>
+              <p class="service-card__desc">Servicio integral de frenos: revisión, ajuste y reemplazo de pastillas y discos con garantía.</p>
+              <div class="service-card__branches">
+                <span class="branch-tag branch-tag--posadas">Posadas</span>
+                <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+              </div>
+            </div>
+
           </div>
-          <h3 class="service-card__title">Parche</h3>
-          <p class="service-card__desc">Reparación de neumáticos con parche vulcanizado para una solución duradera y segura.</p>
-          <div class="service-card__branches">
-            <span class="branch-tag branch-tag--posadas">Posadas</span>
-            <span class="branch-tag branch-tag--resistencia">Resistencia</span>
+
+          <!-- Navegación del slider -->
+          <div class="service-card__slider-nav">
+            <button class="service-slider__btn service-slider__prev" aria-label="Servicio anterior">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="service-slider__dots" id="serviceSliderDots">
+              <button class="service-slider__dot active" data-idx="0" aria-label="Parche"></button>
+              <button class="service-slider__dot" data-idx="1" aria-label="Reparación de llantas"></button>
+              <button class="service-slider__dot" data-idx="2" aria-label="Tren delantero"></button>
+              <button class="service-slider__dot" data-idx="3" aria-label="Amortiguador"></button>
+              <button class="service-slider__dot" data-idx="4" aria-label="Freno"></button>
+            </div>
+            <button class="service-slider__btn service-slider__next" aria-label="Siguiente servicio">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
 
@@ -281,13 +344,13 @@
               </li>
               <li class="branch-info__item">
                 <i class="fa-brands fa-whatsapp"></i>
-                <a href="https://wa.me/[COMPLETAR_WA_POSADAS]?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener">
-                  [COMPLETAR: WhatsApp Posadas]
+                <a href="https://wa.me/5493764333966?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener">
+                  +54 9 376 433-3966
                 </a>
               </li>
               <li class="branch-info__item">
                 <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:[COMPLETAR_EMAIL_POSADAS]">[COMPLETAR: Email Posadas]</a>
+                <a href="mailto:adm.nnsrl@gmail.com">adm.nnsrl@gmail.com</a>
               </li>
             </ul>
             <div class="branch-hours">
@@ -355,13 +418,13 @@
               </li>
               <li class="branch-info__item">
                 <i class="fa-brands fa-whatsapp"></i>
-                <a href="https://wa.me/[COMPLETAR_WA_RESISTENCIA]?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener">
-                  [COMPLETAR: WhatsApp Resistencia]
+                <a href="https://wa.me/5493624649788?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener">
+                  +54 9 362 464-9788
                 </a>
               </li>
               <li class="branch-info__item">
                 <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:lucas_urbanija@hotmail.com">lucas_urbanija@hotmail.com</a>
+                <a href="mailto:neumaticosnortesrl@hotmail.com.ar">neumaticosnortesrl@hotmail.com.ar</a>
               </li>
             </ul>
             <div class="branch-hours">
@@ -475,9 +538,14 @@
               <div class="contact-channel__content">
                 <strong>WhatsApp</strong>
                 <p>Respondemos en minutos</p>
-                <a href="https://wa.me/[COMPLETAR_NUMERO]?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener" class="btn btn--wa btn--sm">
-                  <i class="fa-brands fa-whatsapp"></i> Abrir WhatsApp
-                </a>
+                <div class="contact-channel__wa-btns">
+                  <a href="https://wa.me/5493764333966?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener" class="btn btn--wa btn--sm">
+                    <i class="fa-brands fa-whatsapp"></i> Posadas
+                  </a>
+                  <a href="https://wa.me/5493624649788?text=Hola!%20Quisiera%20consultar%20sobre..." target="_blank" rel="noopener" class="btn btn--wa btn--sm">
+                    <i class="fa-brands fa-whatsapp"></i> Resistencia
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -571,7 +639,8 @@
         <ul>
           <li><i class="fa-solid fa-phone"></i> 0376 448-1555</li>
           <li><i class="fa-solid fa-phone"></i> 0362 478-4785</li>
-          <li><i class="fa-solid fa-envelope"></i> lucas_urbanija@hotmail.com</li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:adm.nnsrl@gmail.com">adm.nnsrl@gmail.com</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:neumaticosnortesrl@hotmail.com.ar">neumaticosnortesrl@hotmail.com.ar</a></li>
         </ul>
       </div>
 
@@ -587,16 +656,29 @@
 
 
   <!-- ===== WHATSAPP FLOTANTE ===== -->
-  <a
-    href="https://wa.me/[COMPLETAR_NUMERO]?text=Hola!%20Quisiera%20consultar%20sobre..."
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener"
-    aria-label="Contactar por WhatsApp"
-  >
-    <i class="fa-brands fa-whatsapp"></i>
-    <span class="whatsapp-float__tooltip">Chateá con nosotros</span>
-  </a>
+  <div class="whatsapp-float__wrap" id="waFloat">
+    <div class="whatsapp-float__menu" id="waMenu" aria-hidden="true" role="dialog" aria-label="Elegí una sucursal">
+      <div class="whatsapp-float__menu-title">¿Con qué sucursal hablamos?</div>
+      <a href="https://wa.me/5493764333966?text=Hola!%20Quisiera%20consultar%20sobre..." class="whatsapp-float__option" target="_blank" rel="noopener" aria-label="WhatsApp Posadas">
+        <span class="whatsapp-float__option-icon"><i class="fa-brands fa-whatsapp"></i></span>
+        <div>
+          <strong>Posadas</strong>
+          <small>Misiones · +54 9 376 433-3966</small>
+        </div>
+      </a>
+      <a href="https://wa.me/5493624649788?text=Hola!%20Quisiera%20consultar%20sobre..." class="whatsapp-float__option" target="_blank" rel="noopener" aria-label="WhatsApp Resistencia">
+        <span class="whatsapp-float__option-icon"><i class="fa-brands fa-whatsapp"></i></span>
+        <div>
+          <strong>Resistencia</strong>
+          <small>Chaco · +54 9 362 464-9788</small>
+        </div>
+      </a>
+    </div>
+    <button class="whatsapp-float" id="waToggle" aria-label="Abrir selector de WhatsApp" aria-expanded="false">
+      <i class="fa-brands fa-whatsapp" id="waIcon"></i>
+      <span class="whatsapp-float__tooltip">Chateá con nosotros</span>
+    </button>
+  </div>
 
 
   <!-- ===== SCRIPTS ===== -->
