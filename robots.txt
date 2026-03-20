@@ -1,0 +1,13 @@
+# robots.txt — Neumáticos Norte
+# IMPORTANTE: Reemplazá "https://TU-DOMINIO.com" con tu dominio real.
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.claude/
+
+# Sitemap
+Sitemap: https://TU-DOMINIO.com/sitemap.xml
+
+# Crawl-delay sugerido (segundos)
+Crawl-delay: 1

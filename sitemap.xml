@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP — Neumáticos Norte
+  IMPORTANTE: Reemplazá "https://TU-DOMINIO.com" con tu dominio real.
+  Podés encontrar tu dominio en el panel de Vercel → Settings → Domains.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://TU-DOMINIO.com/</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://TU-DOMINIO.com/"/>
+  </url>
+
+  <!-- Secciones (anclas internas — ayudan a Google a entender la estructura) -->
+  <url>
+    <loc>https://TU-DOMINIO.com/#nosotros</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://TU-DOMINIO.com/#servicios</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://TU-DOMINIO.com/#sucursales</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://TU-DOMINIO.com/#contacto</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
