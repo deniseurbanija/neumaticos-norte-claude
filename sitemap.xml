@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   SITEMAP — Neumáticos Norte
-  IMPORTANTE: Reemplazá "https://TU-DOMINIO.com" con tu dominio real.
+  IMPORTANTE: Reemplazá "https://neumaticosnorte.com.ar" con tu dominio real.
   Podés encontrar tu dominio en el panel de Vercel → Settings → Domains.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -9,37 +9,37 @@
 
   <!-- Página principal -->
   <url>
-    <loc>https://TU-DOMINIO.com/</loc>
+    <loc>https://neumaticosnorte.com.ar/</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es-AR" href="https://TU-DOMINIO.com/"/>
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://neumaticosnorte.com.ar/"/>
   </url>
 
   <!-- Secciones (anclas internas — ayudan a Google a entender la estructura) -->
   <url>
-    <loc>https://TU-DOMINIO.com/#nosotros</loc>
+    <loc>https://neumaticosnorte.com.ar/#nosotros</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://TU-DOMINIO.com/#servicios</loc>
+    <loc>https://neumaticosnorte.com.ar/#servicios</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://TU-DOMINIO.com/#sucursales</loc>
+    <loc>https://neumaticosnorte.com.ar/#sucursales</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://TU-DOMINIO.com/#contacto</loc>
+    <loc>https://neumaticosnorte.com.ar/#contacto</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
