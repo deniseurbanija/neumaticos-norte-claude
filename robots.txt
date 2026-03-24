@@ -1,5 +1,4 @@
 # robots.txt — Neumáticos Norte
-# IMPORTANTE: Reemplazá "https://neumaticosnorte.com.ar" con tu dominio real.
 
 User-agent: *
 Allow: /
@@ -7,7 +6,7 @@ Disallow: /node_modules/
 Disallow: /.claude/
 
 # Sitemap
-Sitemap: https://neumaticosnorte.com.ar/sitemap.xml
+Sitemap: https://www.neumaticosnorte.com.ar/sitemap.xml
 
 # Crawl-delay sugerido (segundos)
 Crawl-delay: 1
