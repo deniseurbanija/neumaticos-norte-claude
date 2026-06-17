@@ -1,0 +1,12 @@
+# robots.txt — Neumáticos Norte
+
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.claude/
+
+# Sitemap
+Sitemap: https://www.neumaticosnorte.com.ar/sitemap.xml
+
+# Crawl-delay sugerido (segundos)
+Crawl-delay: 1
